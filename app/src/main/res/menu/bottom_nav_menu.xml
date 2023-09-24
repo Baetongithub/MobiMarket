@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_96"
+        android:title="@string/title_main" />
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/ic_dollar_account_96"
+        android:title="@string/title_wallet" />
+
+    <item
+        android:id="@+id/placeholder"
+        android:title="" />
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/ic_chat_100"
+        android:title="@string/title_chat" />
+
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_administrator_male_100"
+        android:title="@string/profile" />
+
+</menu>
