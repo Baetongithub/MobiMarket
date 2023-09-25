@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/container"
     android:layout_width="match_parent"
+    android:animateLayoutChanges="true"
     android:layout_height="match_parent">
 
     <fragment
@@ -31,7 +32,7 @@
             app:itemIconTint="@color/main_blue"
             app:itemBackground="@color/white"
             app:backgroundTint="@color/white"
-            app:labelVisibilityMode="labeled"
+            app:labelVisibilityMode="auto"
             app:menu="@menu/bottom_nav_menu" />
     </com.google.android.material.bottomappbar.BottomAppBar>
 

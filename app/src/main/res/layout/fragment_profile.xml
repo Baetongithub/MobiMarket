@@ -19,7 +19,7 @@
             android:text="@string/change"
             android:textAllCaps="false"
             android:textColor="@color/black"
-            app:backgroundTint="#DFDEDE"
+            app:backgroundTint="@color/main_silver_btn_color"
             app:cornerRadius="50dp" />
 
         <TextView

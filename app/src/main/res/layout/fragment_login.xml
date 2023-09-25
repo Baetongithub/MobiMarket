@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.ui.login.LoginFragment">
+
+    <ImageView
+        android:id="@+id/image_logo"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/main_logo2" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image_logo"
+        android:layout_marginTop="@dimen/user_name_margin_top">
+
+        <EditText
+            android:id="@+id/et_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:hint="@string/user_name"
+            android:inputType="textCapSentences" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/til_user_name"
+        android:layout_marginTop="@dimen/password_margin_top"
+        app:endIconMode="password_toggle">
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/til_password"
+        android:layout_marginHorizontal="@dimen/enter_login_margin_horizontal"
+        android:layout_marginTop="@dimen/user_name_margin_top"
+        android:text="@string/sign_in"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:backgroundTint="@color/main_blue"
+        app:cornerRadius="20dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_temporary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_sign_in"
+        android:layout_marginHorizontal="@dimen/enter_login_margin_horizontal"
+        android:layout_marginTop="@dimen/user_name_margin_top"
+        android:text="Закрыть"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:backgroundTint="@color/main_blue"
+        app:cornerRadius="20dp" />
+
+    <TextView
+        android:id="@+id/btn_sign_up"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="@dimen/enter_login_margin_horizontal"
+        android:layout_marginTop="@dimen/user_name_margin_top"
+        android:layout_marginBottom="@dimen/btn_sign_up_margin_bottom"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:paddingVertical="10dp"
+        android:text="@string/sign_up"
+        android:textAllCaps="false"
+        android:textColor="@color/main_blue"
+        android:textStyle="bold" />
+
+</RelativeLayout>

@@ -3,4 +3,8 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="splash_screen_icon_size">198dp</dimen>
+    <dimen name="user_name_margin_top">50dp</dimen>
+    <dimen name="password_margin_top">20dp</dimen>
+    <dimen name="enter_login_margin_horizontal">30dp</dimen>
+    <dimen name="btn_sign_up_margin_bottom">40dp</dimen>
 </resources>

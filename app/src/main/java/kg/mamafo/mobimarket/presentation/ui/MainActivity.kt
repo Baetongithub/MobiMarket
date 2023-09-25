@@ -1,8 +1,11 @@
 package kg.mamafo.mobimarket.presentation.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.window.OnBackInvokedDispatcher
+import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.core.os.BuildCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
@@ -14,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    @SuppressLint("UnsafeOptInUsageError")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         overridePendingTransition(0, 0)
@@ -35,6 +39,18 @@ class MainActivity : AppCompatActivity() {
                 R.id.profileFragment
             )
         )
+        navController.navigate(R.id.loginFragment)
+        if (BuildCompat.isAtLeastT()) {
+            onBackInvokedDispatcher.registerOnBackInvokedCallback(
+                OnBackInvokedDispatcher.PRIORITY_DEFAULT
+            ) {
+                finish()
+            }
+        } else {
+            onBackPressedDispatcher.addCallback(this) {
+                finish()
+            }
+        }
         navView.setupWithNavController(navController)
     }
 }

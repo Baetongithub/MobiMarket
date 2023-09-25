@@ -7,9 +7,16 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="profile">Профиль</string>
     <string name="liked">Понравившиеся</string>
-    <string name="user_name">Алеся</string>
+    <string name="user_name">Имя пользоветеля</string>
     <string name="my_goods">Мои товары</string>
     <string name="change">Изм.</string>
     <string name="log_out">Выйти</string>
     <string name="end_up_registration">Закончить регистрацию</string>
+    <string name="password">Пароль</string>
+    <string name="sign_in">Войти</string>
+    <string name="sign_up">Зарегистрироваться</string>
+    <string name="register">Регистрация</string>
+    <string name="email">Почта</string>
+    <string name="password_requires_description"><![CDATA[Минимальная длина — 8 символов. Для надежности пароль должен содержать буквы и цифры.]]></string>
+    <string name="create_a_new_password">Придуемайте пароль</string>
 </resources>
