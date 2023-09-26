@@ -10,8 +10,9 @@ import kg.mamafo.mobimarket.databinding.ItemMainGoodsBinding
 import kg.mamafo.mobimarket.presentation.extensions.glide
 
 class HomeAdapter(
-    private val onItemClick: (GoodsModel) -> Unit
-) : ListAdapter<GoodsModel, HomeAdapter.MainViewHolder>(ProverbsDiffUtil()){
+    private val onItemClick: (GoodsModel) -> Unit,
+    private val onLikeClick: (GoodsModel) -> Unit,
+) : ListAdapter<GoodsModel, HomeAdapter.MainViewHolder>(ProverbsDiffUtil()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
         return MainViewHolder(
@@ -36,7 +37,8 @@ class HomeAdapter(
             vb.tvNameOfProduct.text = goodsModel.name
             vb.tvPriceOfProduct.text = goodsModel.price
             vb.tvAmountOfLike.text = goodsModel.amountOfLikes
-            vb.imageLike.glide(goodsModel.image)
+            vb.mainImageView.glide(goodsModel.image)
+            vb.imageLike.setOnClickListener { onLikeClick(getItem(adapterPosition)) }
         }
     }
 
