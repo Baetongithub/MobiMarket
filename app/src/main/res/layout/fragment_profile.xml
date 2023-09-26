@@ -12,6 +12,7 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_change_in_toolbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
@@ -80,8 +81,8 @@
         style="@style/btn_profile_liked_mygoods"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
         android:layout_below="@id/btn_liked"
+        android:layout_marginHorizontal="20dp"
         android:text="@string/my_goods"
         app:backgroundTint="@color/white"
         app:icon="@drawable/mygoods"

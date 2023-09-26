@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.ui.home.detailed.DetailedGoodsViewFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/transparent">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/backgr_image_back"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:paddingHorizontal="15dp"
+            android:paddingVertical="5dp"
+            android:src="@drawable/ic_left_24" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/image_main_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_administrator_male_100" />
+
+    <TextView
+        android:id="@+id/tv_price_of_product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image_main_image_view"
+        android:padding="10dp"
+        android:text="$ 23 000"
+        android:textColor="@color/purple_200"
+        android:textSize="19sp"
+        android:textStyle="bold" />
+
+
+    <ImageView
+        android:id="@+id/image_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_price_of_product"
+        android:layout_marginTop="5dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:paddingHorizontal="10dp"
+        android:src="@drawable/ic_favorite_48" />
+
+    <TextView
+        android:id="@+id/tv_liked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/image_like"
+        android:layout_alignBottom="@id/image_like"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@id/image_like"
+        android:gravity="center"
+        android:text="Нравится:" />
+
+    <TextView
+        android:id="@+id/tv_amount_of_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/image_like"
+        android:layout_alignBottom="@id/image_like"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@id/tv_liked"
+        android:gravity="center"
+        android:text="1M" />
+
+    <TextView
+        android:id="@+id/tv_name_of_product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image_like"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="BMW M4 Coupe: A Two-Door"
+        android:textColor="@color/black"
+        android:textSize="19sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_name_of_product"
+        android:paddingHorizontal="10dp"
+        android:text="Description DescriptionDescription DescriptionDescription DescriptionDescription DescriptionDescription DescriptionDescription DescriptionDescription DescriptionDescription DescriptionDescription DescriptionDescription" />
+
+
+    <TextView
+        android:id="@+id/tv_detailed_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_description"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Детальное описание"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_detailed_description_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_detailed_description"
+        android:paddingHorizontal="10dp"
+        android:text="Description DescriptionDescription DescriptionDescription DescriptionDescription DescriptionDescription DescriptionDescription DescriptionDescription DescriptionDescription DescriptionDescription DescriptionDescription" />
+
+</RelativeLayout>

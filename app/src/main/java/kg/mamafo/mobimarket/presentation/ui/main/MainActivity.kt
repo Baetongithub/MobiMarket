@@ -1,7 +1,9 @@
-package kg.mamafo.mobimarket.presentation.ui
+package kg.mamafo.mobimarket.presentation.ui.main
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.window.OnBackInvokedDispatcher
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
@@ -15,17 +17,17 @@ import kg.mamafo.mobimarket.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var vb: ActivityMainBinding
 
     @SuppressLint("UnsafeOptInUsageError")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         overridePendingTransition(0, 0)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        vb = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(vb.root)
 
-        val navView: BottomNavigationView = binding.bottomNavigationView
-        binding.bottomNavigationView.background = null
+        val navView: BottomNavigationView = vb.bottomNavigationView
+        vb.bottomNavigationView.background = null
         navView.menu.getItem(2).isEnabled = false
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
@@ -34,11 +36,26 @@ class MainActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home,
-                R.id.navigation_dashboard,
-                R.id.navigation_notifications,
+                R.id.navigation_wallet,
+                R.id.navigation_chats,
                 R.id.profileFragment
             )
         )
+
+        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+            val list = arrayListOf<Int>()
+            list.add(R.id.navigation_home)
+            list.add(R.id.navigation_wallet)
+            list.add(R.id.navigation_chats)
+            list.add(R.id.profileFragment)
+            if (list.contains(destination.id)) {
+                vb.bottomAppBar.visibility = VISIBLE
+                vb.fab.visibility = VISIBLE
+            } else {
+                vb.bottomAppBar.visibility = GONE
+                vb.fab.visibility = GONE
+            }
+        }
         navController.navigate(R.id.loginFragment)
         if (BuildCompat.isAtLeastT()) {
             onBackInvokedDispatcher.registerOnBackInvokedCallback(

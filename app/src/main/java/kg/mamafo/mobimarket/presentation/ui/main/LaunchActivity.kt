@@ -1,4 +1,4 @@
-package kg.mamafo.mobimarket.presentation.ui
+package kg.mamafo.mobimarket.presentation.ui.main
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

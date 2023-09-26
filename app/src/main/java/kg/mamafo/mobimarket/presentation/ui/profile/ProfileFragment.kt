@@ -5,4 +5,11 @@ import kg.mamafo.mobimarket.presentation.ui.base.BaseFragment
 
 class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
 
+    override fun setUpUI() {
+        super.setUpUI()
+
+        vb.cardProfileImage.setOnClickListener {
+
+        }
+    }
 }

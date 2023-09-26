@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_home">
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="kg.mamafo.mobimarket.presentation.ui.main.MainFragment"
-        android:label="@string/title_main"/>
+        android:name="kg.mamafo.mobimarket.presentation.ui.home.HomeFragment"
+        android:label="@string/title_main">
+        <action
+            android:id="@+id/action_navigation_home_to_detailedGoodsViewFragment"
+            app:destination="@id/detailedGoodsViewFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out"/>
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_wallet"
         android:name="kg.mamafo.mobimarket.presentation.ui.dashboard.WalletFragment"
         android:label="@string/title_wallet" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_chats"
         android:name="kg.mamafo.mobimarket.presentation.ui.notifications.ChatsFragment"
         android:label="@string/title_chat" />
     <fragment
@@ -38,4 +47,8 @@
         android:id="@+id/signUpFragment"
         android:name="kg.mamafo.mobimarket.presentation.ui.sign_up.SignUpFragment"
         android:label="@string/sign_up" />
+    <fragment
+        android:id="@+id/detailedGoodsViewFragment"
+        android:name="kg.mamafo.mobimarket.presentation.ui.home.detailed.DetailedGoodsViewFragment"
+        android:label="Detailed view" />
 </navigation>

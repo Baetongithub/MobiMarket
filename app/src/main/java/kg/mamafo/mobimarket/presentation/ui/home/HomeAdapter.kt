@@ -1,17 +1,17 @@
-package kg.mamafo.mobimarket.presentation.ui.main
+package kg.mamafo.mobimarket.presentation.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import kg.mamafo.mobimarket.data.model.Model
+import kg.mamafo.mobimarket.data.model.GoodsModel
 import kg.mamafo.mobimarket.databinding.ItemMainGoodsBinding
 import kg.mamafo.mobimarket.presentation.extensions.glide
 
-class MainAdapter(
-    private val onItemClick: (Model) -> Unit
-) : ListAdapter<Model, MainAdapter.MainViewHolder>(ProverbsDiffUtil()){
+class HomeAdapter(
+    private val onItemClick: (GoodsModel) -> Unit
+) : ListAdapter<GoodsModel, HomeAdapter.MainViewHolder>(ProverbsDiffUtil()){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
         return MainViewHolder(
@@ -32,25 +32,25 @@ class MainAdapter(
         private val vb: ItemMainGoodsBinding
     ) : RecyclerView.ViewHolder(vb.root) {
 
-        fun bind(model: Model) {
-            vb.tvNameOfProduct.text = model.name
-            vb.tvPriceOfProduct.text = model.price
-            vb.tvAmountOfLike.text = model.amountOfLikes
-            vb.imageLike.glide(model.image)
+        fun bind(goodsModel: GoodsModel) {
+            vb.tvNameOfProduct.text = goodsModel.name
+            vb.tvPriceOfProduct.text = goodsModel.price
+            vb.tvAmountOfLike.text = goodsModel.amountOfLikes
+            vb.imageLike.glide(goodsModel.image)
         }
     }
 
-    private class ProverbsDiffUtil : DiffUtil.ItemCallback<Model>() {
+    private class ProverbsDiffUtil : DiffUtil.ItemCallback<GoodsModel>() {
         override fun areItemsTheSame(
-            oldItem: Model,
-            newItem: Model
+            oldItem: GoodsModel,
+            newItem: GoodsModel
         ): Boolean {
             return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(
-            oldItem: Model,
-            newItem: Model
+            oldItem: GoodsModel,
+            newItem: GoodsModel
         ): Boolean {
             return oldItem == newItem
         }
