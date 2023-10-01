@@ -4,5 +4,9 @@ import kg.mamafo.mobimarket.databinding.FragmentWalletBinding
 import kg.mamafo.mobimarket.presentation.ui.base.BaseFragment
 
 class WalletFragment : BaseFragment<FragmentWalletBinding>(FragmentWalletBinding::inflate) {
+    override fun setUpUI() {
+
+
+    }
 
 }

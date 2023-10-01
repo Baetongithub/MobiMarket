@@ -15,7 +15,7 @@
             app:enterAnim="@anim/slide_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out"/>
+            app:popExitAnim="@anim/slide_out" />
     </fragment>
 
     <fragment
@@ -27,28 +27,57 @@
         android:id="@+id/navigation_chats"
         android:name="kg.mamafo.mobimarket.presentation.ui.notifications.ChatsFragment"
         android:label="@string/title_chat" />
+
     <fragment
         android:id="@+id/profileFragment"
         android:name="kg.mamafo.mobimarket.presentation.ui.profile.ProfileFragment"
-        android:label="@string/profile" />
+        android:label="@string/profile">
+        <action
+            android:id="@+id/action_profileFragment_to_likedProductsFragment"
+            app:destination="@id/likedProductsFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out" />
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out" />
+    </fragment>
+
     <fragment
         android:id="@+id/loginFragment"
         android:name="kg.mamafo.mobimarket.presentation.ui.login.LoginFragment"
-        android:label="@string/sign_in" >
+        android:label="@string/sign_in">
         <action
             android:id="@+id/action_loginFragment_to_signUpFragment"
             app:destination="@id/signUpFragment"
             app:enterAnim="@anim/slide_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out"/>
+            app:popExitAnim="@anim/slide_out" />
     </fragment>
+
     <fragment
         android:id="@+id/signUpFragment"
         android:name="kg.mamafo.mobimarket.presentation.ui.sign_up.SignUpFragment"
         android:label="@string/sign_up" />
+
     <fragment
         android:id="@+id/detailedGoodsViewFragment"
         android:name="kg.mamafo.mobimarket.presentation.ui.home.detailed.DetailedGoodsViewFragment"
         android:label="Detailed view" />
+
+    <fragment
+        android:id="@+id/likedProductsFragment"
+        android:name="kg.mamafo.mobimarket.presentation.ui.liked_products.LikedProductsFragment"
+        android:label="@string/liked" />
+
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="kg.mamafo.mobimarket.presentation.ui.profile.EditProfileFragment"
+        android:label="Изменить данные" />
 </navigation>

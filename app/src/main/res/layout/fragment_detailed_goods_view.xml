@@ -9,7 +9,7 @@
         android:id="@+id/image_main_image_view"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:scaleType="fitCenter"
+        android:scaleType="centerCrop"
         android:src="@drawable/img_bmw" />
 
     <androidx.appcompat.widget.Toolbar

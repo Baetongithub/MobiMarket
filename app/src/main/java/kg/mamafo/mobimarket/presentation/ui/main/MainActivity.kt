@@ -9,7 +9,6 @@ import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.BuildCompat
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kg.mamafo.mobimarket.R
@@ -31,16 +30,6 @@ class MainActivity : AppCompatActivity() {
         navView.menu.getItem(2).isEnabled = false
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home,
-                R.id.navigation_wallet,
-                R.id.navigation_chats,
-                R.id.profileFragment
-            )
-        )
 
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             val list = arrayListOf<Int>()
@@ -50,10 +39,10 @@ class MainActivity : AppCompatActivity() {
             list.add(R.id.profileFragment)
             if (list.contains(destination.id)) {
                 vb.bottomAppBar.visibility = VISIBLE
-                vb.fab.visibility = VISIBLE
+                vb.fab.show()
             } else {
                 vb.bottomAppBar.visibility = GONE
-                vb.fab.visibility = GONE
+                vb.fab.hide()
             }
         }
         navController.navigate(R.id.loginFragment)

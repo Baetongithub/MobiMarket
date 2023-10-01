@@ -5,4 +5,9 @@ import kg.mamafo.mobimarket.presentation.ui.base.BaseFragment
 
 class ChatsFragment : BaseFragment<FragmentChatsBinding>(FragmentChatsBinding::inflate) {
 
+    override fun setUpUI() {
+
+
+    }
+
 }

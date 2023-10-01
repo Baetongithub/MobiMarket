@@ -14,9 +14,11 @@
     <string name="end_up_registration">Закончить регистрацию</string>
     <string name="password">Пароль</string>
     <string name="sign_in">Войти</string>
+    <string name="further">Далее</string>
     <string name="sign_up">Зарегистрироваться</string>
     <string name="register">Регистрация</string>
     <string name="email">Почта</string>
     <string name="password_requires_description"><![CDATA[Минимальная длина — 8 символов. Для надежности пароль должен содержать буквы и цифры.]]></string>
-    <string name="create_a_new_password">Придуемайте пароль</string>
+    <string name="create_a_new_password">Придумайте пароль</string>
+    <string name="oops_empty">Ой, пусто!</string>
 </resources>
