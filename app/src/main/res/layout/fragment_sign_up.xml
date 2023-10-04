@@ -197,7 +197,6 @@
             android:textAllCaps="false"
             android:textSize="17sp"
             android:textStyle="bold"
-            app:backgroundTint="@color/main_blue"
             app:cornerRadius="20dp" />
     </RelativeLayout>
 </RelativeLayout>

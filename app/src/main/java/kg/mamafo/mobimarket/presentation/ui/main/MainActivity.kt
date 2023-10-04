@@ -13,6 +13,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kg.mamafo.mobimarket.R
 import kg.mamafo.mobimarket.databinding.ActivityMainBinding
+import kg.mamafo.mobimarket.presentation.utils.Constants
 
 class MainActivity : AppCompatActivity() {
 
@@ -45,16 +46,22 @@ class MainActivity : AppCompatActivity() {
                 vb.fab.hide()
             }
         }
-        navController.navigate(R.id.loginFragment)
-        if (BuildCompat.isAtLeastT()) {
-            onBackInvokedDispatcher.registerOnBackInvokedCallback(
-                OnBackInvokedDispatcher.PRIORITY_DEFAULT
-            ) {
-                finish()
-            }
-        } else {
-            onBackPressedDispatcher.addCallback(this) {
-                finish()
+
+//        if user == null дальше не пусткать
+        val sharedPrefs = getSharedPreferences(Constants.SHARED_PREFS_SIGNED_UP, MODE_PRIVATE)
+        val userSignedUp = sharedPrefs.getBoolean(Constants.PREFS_SIGNED_UP, false)
+        if (!userSignedUp) {
+            navController.navigate(R.id.loginFragment)
+            if (BuildCompat.isAtLeastT()) {
+                onBackInvokedDispatcher.registerOnBackInvokedCallback(
+                    OnBackInvokedDispatcher.PRIORITY_DEFAULT
+                ) {
+                    finish()
+                }
+            } else {
+                onBackPressedDispatcher.addCallback(this) {
+                    finish()
+                }
             }
         }
         navView.setupWithNavController(navController)
