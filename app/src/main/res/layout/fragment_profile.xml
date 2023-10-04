@@ -83,6 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/btn_favorite_products"
         android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="-15dp"
         android:text="@string/my_goods"
         app:backgroundTint="@color/white"
         app:icon="@drawable/mygoods"
