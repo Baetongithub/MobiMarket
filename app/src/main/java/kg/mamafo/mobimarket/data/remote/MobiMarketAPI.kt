@@ -7,7 +7,7 @@ import retrofit2.http.POST
 
 interface MobiMarketAPI {
 
-    @POST("auth/login")
+    @POST("auth/login/")
     suspend fun login(
         @Body login:Login
     ) : Response<Login>

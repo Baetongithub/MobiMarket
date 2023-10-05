@@ -32,7 +32,7 @@ fun provideOkHttpClient(): OkHttpClient {
 fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
     return Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
-        .baseUrl("https://157.230.18.205:8000/swagger/")
+        .baseUrl("https://www.ishak-backender.org.kg/")
         .client(okHttpClient)
         .build()
 }

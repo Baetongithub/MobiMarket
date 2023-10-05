@@ -30,8 +30,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
             login(
                 Login(
                     vb.etUserName.text.toString().trim(),
-                    vb.etPassword.text.toString().trim(),
-                    null
+                    vb.etPassword.text.toString().trim()
                 )
             )
         }
