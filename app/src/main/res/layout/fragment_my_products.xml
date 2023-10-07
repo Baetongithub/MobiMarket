@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ui.profile.EditProfileFragment">
+    tools:context=".presentation.ui.my_products.MyProductsFragment">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -26,10 +26,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/end_up_registration"
+            android:text="@string/my_goods"
             android:textColor="@color/black"
             android:textSize="17sp"
             android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
 
+    <ImageView
+        android:id="@+id/image_oops_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/empty" />
 </RelativeLayout>

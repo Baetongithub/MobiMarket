@@ -1,32 +1,40 @@
 package kg.mamafo.mobimarket.presentation.ui.profile
 
-import android.net.Uri
-import android.widget.ImageView
-import androidx.activity.result.contract.ActivityResultContracts
 import kg.mamafo.mobimarket.R
+import kg.mamafo.mobimarket.data.remote.Status
 import kg.mamafo.mobimarket.databinding.FragmentProfileBinding
+import kg.mamafo.mobimarket.presentation.extensions.glide
+import kg.mamafo.mobimarket.presentation.extensions.toast
 import kg.mamafo.mobimarket.presentation.ui.base.BaseFragment
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
 
-    override fun setUpUI() {
-        vb.cardProfileImage.setOnClickListener { uploadProfilePhoto(vb.imageProfile) }
+    private val viewModel: ProfileViewModel by viewModel()
 
-        vb.btnFavoriteProducts.setOnClickListener { navigate(R.id.action_profileFragment_to_likedProductsFragment) }
+    override fun setUpUI() {
+
+        vb.tvFavoriteProducts.setOnClickListener { navigate(R.id.action_profileFragment_to_likedProductsFragment) }
+        vb.tvMyGoods.setOnClickListener { navigate(R.id.action_profileFragment_to_myProductsFragment) }
+        vb.btnFinishRegistration.setOnClickListener { navigate(R.id.action_profileFragment_to_finishRegistrationFragment) }
     }
 
-    private fun uploadProfilePhoto(imageView: ImageView) {
-        var uri: Uri
-        val imageFromGallery =
-            registerForActivityResult(ActivityResultContracts.GetContent()) { galleryUri ->
-                if (galleryUri != null) {
-                    uri = galleryUri
-                    imageView.setImageURI(uri)
-                }
-            }
-        vb.cardProfileImage.setOnClickListener {
-            imageFromGallery.launch("image/*")
+    override fun setData() {
+        super.setData()
+        getProfileData()
+    }
 
+    private fun getProfileData() {
+        viewModel.getProfile().observe(this) { resource ->
+            when (resource.status) {
+                Status.SUCCESS -> {
+                    resource.data?.avatar?.let { vb.imageProfile.glide(it) }
+                    resource.data?.email?.let { toast(it) }
+                    resource.data?.firstName?.let { toast(it) }
+                }
+                Status.LOADING -> toast("Загрузка")
+                Status.ERROR -> toast("Произошла ошибка${resource.code}+ ${resource.message}")
+            }
         }
     }
 }

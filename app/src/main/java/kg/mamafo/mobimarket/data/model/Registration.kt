@@ -1,8 +1,10 @@
 package kg.mamafo.mobimarket.data.model
 
+import com.google.gson.annotations.SerializedName
+
 data class Registration(
-    val username: String,
+    @SerializedName("username") val userName: String,
     val email: String,
     val password: String,
-    val password_confirm: String
+    @SerializedName("password_confirm") val passwordConfirm: String
 )

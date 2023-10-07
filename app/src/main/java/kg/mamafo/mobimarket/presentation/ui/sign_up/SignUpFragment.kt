@@ -8,13 +8,20 @@ import android.util.Patterns
 import android.view.MotionEvent
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import androidx.fragment.app.viewModels
+import kg.mamafo.mobimarket.data.model.Registration
+import kg.mamafo.mobimarket.data.remote.Status
 import kg.mamafo.mobimarket.databinding.FragmentSignUpBinding
+import kg.mamafo.mobimarket.presentation.extensions.toast
 import kg.mamafo.mobimarket.presentation.ui.base.BaseFragment
 import kg.mamafo.mobimarket.presentation.utils.KeyboardHelper
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
 class SignUpFragment : BaseFragment<FragmentSignUpBinding>(FragmentSignUpBinding::inflate) {
+
+    private val viewModel: SignUpViewModel by viewModel()
 
     override fun setUpUI() {
         vb.btnBack.setOnClickListener { navigateUp() }
@@ -74,11 +81,31 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(FragmentSignUpBinding
             if (vb.btnFurther.text == "Готово"
                 && isValidPassword(vb.etPasswordConfirm.text.toString())
             ) {
-                navigateUp()
+                signUp(
+                    Registration(
+                        vb.etUserName.text.toString(),
+                        vb.etEmail.text.toString(),
+                        vb.etPassword.text.toString(),
+                        vb.etPasswordConfirm.text.toString()
+                    )
+                )
             } else {
                 vb.etPassword.error = "incorrect password"
                 vb.etPasswordConfirm.error = "incorrect password"
                 vb.btnFurther.text = "Далее"
+            }
+        }
+    }
+
+    private fun signUp(registration: Registration) {
+        viewModel.signUp(registration).observe(this) { resource ->
+            when (resource.status) {
+                Status.SUCCESS -> {
+                    navigateUp()
+                    toast("Success")
+                }
+                Status.LOADING -> toast("Загрузка")
+                Status.ERROR -> toast("Произошла ошибка${resource.code}+ ${resource.message}")
             }
         }
     }

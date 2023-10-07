@@ -31,14 +31,10 @@
             android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
 
-
-    <TextView
-        android:id="@+id/tv_oops_empty"
+    <ImageView
+        android:id="@+id/image_oops_empty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="@string/oops_empty"
-        android:textColor="@color/black"
-        android:textSize="50sp"
-        android:textStyle="bold" />
+        android:src="@drawable/empty" />
 </RelativeLayout>

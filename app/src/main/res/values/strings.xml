@@ -11,7 +11,7 @@
     <string name="my_goods">Мои товары</string>
     <string name="change">Изм.</string>
     <string name="log_out">Выйти</string>
-    <string name="end_up_registration">Закончить регистрацию</string>
+    <string name="finish_registration">Закончить регистрацию</string>
     <string name="password">Пароль</string>
     <string name="sign_in">Войти</string>
     <string name="further">Далее</string>
@@ -21,4 +21,12 @@
     <string name="password_requires_description"><![CDATA[Минимальная длина — 8 символов. Для надежности пароль должен содержать буквы и цифры.]]></string>
     <string name="create_a_new_password">Придумайте пароль</string>
     <string name="oops_empty">Ой, пусто!</string>
+    <string name="cancel">Отмена</string>
+    <string name="ready">Готово</string>
+    <string name="choose_photo">Выбрать фотографию</string>
+    <string name="first_name">Имя</string>
+    <string name="last_name">Фамилия</string>
+    <string name="surname">Отчество</string>
+    <string name="birthday">Дата рождения</string>
+    <string name="add_phone_number">Добавить номер</string>
 </resources>
