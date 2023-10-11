@@ -4,6 +4,7 @@ import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import kg.mamafo.mobimarket.R
 import kg.mamafo.mobimarket.data.model.Login
+import kg.mamafo.mobimarket.data.model.TokenObtainPair
 import kg.mamafo.mobimarket.data.remote.Status
 import kg.mamafo.mobimarket.databinding.FragmentLoginBinding
 import kg.mamafo.mobimarket.presentation.extensions.toast
@@ -32,6 +33,12 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                     vb.etPassword.text.toString().trim()
                 )
             )
+            token(
+                TokenObtainPair(
+                    vb.etUserName.text.toString().trim(),
+                    vb.etPassword.text.toString().trim()
+                )
+            )
         }
     }
 
@@ -49,6 +56,18 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
 
                     myEdit?.putBoolean(Constants.PREFS_SIGNED_UP, true)
                     myEdit?.apply()
+                }
+                Status.LOADING -> toast("Загрузка")
+                Status.ERROR -> toast("Произошла ошибка ${it.code} ${it.message}")
+            }
+        }
+    }
+
+    private fun token(tokenObtainPair: TokenObtainPair) {
+        viewModel.token(tokenObtainPair).observe(this) {
+            when (it.status) {
+                Status.SUCCESS -> {
+                    toast("Success")
                 }
                 Status.LOADING -> toast("Загрузка")
                 Status.ERROR -> toast("Произошла ошибка ${it.code} ${it.message}")

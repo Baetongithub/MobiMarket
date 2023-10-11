@@ -1,9 +1,6 @@
 package kg.mamafo.mobimarket.data.remote
 
-import kg.mamafo.mobimarket.data.model.CodeSend
-import kg.mamafo.mobimarket.data.model.Login
-import kg.mamafo.mobimarket.data.model.ProfileRegistration
-import kg.mamafo.mobimarket.data.model.Registration
+import kg.mamafo.mobimarket.data.model.*
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -16,6 +13,16 @@ interface MobiMarketAPI {
     suspend fun login(
         @Body login:Login
     ) : Response<Login>
+
+    @POST("auth/api/token/")
+    suspend fun token(
+        @Body login:TokenObtainPair
+    ) : Response<TokenObtainPair>
+
+    @POST("auth/api/token/")
+    suspend fun tokenPair(
+        @Body login:TokenObtainPair
+    ) : Response<TokenObtainPair>
 
     @GET("auth/profile-view/")
     suspend fun getProfileDetails() : Response<ProfileRegistration>
