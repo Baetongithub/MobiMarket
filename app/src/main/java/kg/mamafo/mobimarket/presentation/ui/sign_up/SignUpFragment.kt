@@ -8,7 +8,6 @@ import android.util.Patterns
 import android.view.MotionEvent
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import androidx.fragment.app.viewModels
 import kg.mamafo.mobimarket.data.model.Registration
 import kg.mamafo.mobimarket.data.remote.Status
 import kg.mamafo.mobimarket.databinding.FragmentSignUpBinding

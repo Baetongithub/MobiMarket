@@ -13,7 +13,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kg.mamafo.mobimarket.R
 import kg.mamafo.mobimarket.databinding.ActivityMainBinding
-import kg.mamafo.mobimarket.presentation.extensions.toast
 import kg.mamafo.mobimarket.presentation.utils.Constants
 
 class MainActivity : AppCompatActivity() {
@@ -66,10 +65,9 @@ class MainActivity : AppCompatActivity() {
         }
         navView.setupWithNavController(navController)
 
-        implementFAB()
-    }
-
-    private fun implementFAB() {
-        vb.fab.setOnClickListener { toast(vb.fab.toString()) }
+        //add products
+        vb.fab.setOnClickListener {
+            findNavController(R.id.nav_host_fragment_activity_main).navigate(R.id.addProductFragment)
+        }
     }
 }

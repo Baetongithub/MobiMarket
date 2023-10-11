@@ -11,7 +11,6 @@ import kg.mamafo.mobimarket.presentation.ui.base.BaseFragment
 import kg.mamafo.mobimarket.presentation.utils.Constants
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-
 class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
 
     private val viewModel: LoginViewModel by viewModel()
@@ -52,7 +51,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                     myEdit?.apply()
                 }
                 Status.LOADING -> toast("Загрузка")
-                Status.ERROR -> toast("Произошла ошибка")
+                Status.ERROR -> toast("Произошла ошибка ${it.code} ${it.message}")
             }
         }
     }

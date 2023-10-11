@@ -1,12 +1,14 @@
 package kg.mamafo.mobimarket.presentation.ui.home
 
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import kg.mamafo.mobimarket.R
 import kg.mamafo.mobimarket.data.model.GoodsModel
 import kg.mamafo.mobimarket.databinding.FragmentMainBinding
 import kg.mamafo.mobimarket.presentation.extensions.toast
 import kg.mamafo.mobimarket.presentation.ui.base.BaseFragment
+import kg.mamafo.mobimarket.presentation.ui.main.OnClickFAB
 import kg.mamafo.mobimarket.presentation.utils.Constants
 
 class HomeFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
